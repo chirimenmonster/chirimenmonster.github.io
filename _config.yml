@@ -19,5 +19,4 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
-#markdown: redcarpet
-highlighter: rouge
+highlighter: pygments
