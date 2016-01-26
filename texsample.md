@@ -1,6 +1,7 @@
 ---
-titlle: TeX 数式サンプル
-layout: math
+title: TeX 数式サンプル
+layout: default
+use_math: true
 ---
 
 $$
