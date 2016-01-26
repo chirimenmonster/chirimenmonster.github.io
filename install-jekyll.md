@@ -87,35 +87,88 @@ Devkit は複数のバージョンに対応している。
 Ruby 2.2.3 (x64) をダウンロードして管理者権限で実行
 + 今後のことを考えてパスは通すようにしておく
 
-### Ruby DevKit のインストール
+### Ruby DevKit
 
 + [RubyInstallers](http://rubyinstaller.org/downloads/) の
 DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe を実行
 + 自己展開ファイルになっているので展開場所に C:\RubyDevKit を指定
-+ コマンドプロンプトで以下のコマンドを実行
++ コマンドプロンプトで以下のコマンドを実行する
+
+コマンド:
+
+    cd C:\RubyDevKit
+    ruby dk.rb init
+    ruby dk.rb install
+
+Ruby がインストールされている場所を自動的に探して設定される。
 
 
-	cd C:RubyDevKit #
-	ruby dk.rb init
-	ruby dk.rb install
+## Jekyll のインストール
 
+### Jekyll 本体
 
-## Jekell のインストール
+Jekyll は Ruby のパッケージ管理システム  (RubyGems) で管理される。
+以下のコマンドを実行すると自動でダウンロードしてインストールされる。
+Proxy 環境では環境変数 (http_proxy) かオプション (-p)
+でプロキシサーバを指定する必要がある。
 
     gem install jekyll
 
-Rouge にするか Pygments にするか決める。
-どちらも syntax highlight を行うためのもの。
-基本的に Rouge は Pygments 互換のライブラリだと考えてよさそう。
-Rouge は Ruby で完結しているけど Pygments だとさらに Python が必要。
+
+### シンタックスハイライト用のツール
+
+Rouge と Pygments の2種類ある。
+
+ちなみに GitHub 内部で使われているのは Pygments の方。
+ただし Pygments は Python 2.7 が必要 (3.x では動かない) なので、
+さらに Python をインストールする必要がある。
+
+Rouge は Ruby で動くので追加のツールは必要ない。
+ただしプレビュー時に別の設定ファイルを指定する必要がある。
+
 インストールが楽なのは Rouge なのでこちらにする。
+もしかしたら Rouge は Jekyll と一緒にすでに入っていたかもしれない。
 
-```
     gem install rouge
-    gem install wdm
-    jekyll new dirname
-```
 
-add line to _config.yml
+
+### 監視用のツール
+
+プレビューするときは、
+変換してローカルにWebサーバを立ち上げてブラウザから接続する形になる。
+
+ソースを更新したらまた変換して…と面倒だが、
+Wdm はその辺のところをやってくれる。
+
+ここまで来たら四の五の言わずに黙って入れよう。
+
+    gem install wdm
+
+
+## ディレクトリツリーの構築
+
+GitHub pages 用の空のフォルダのひとつ上で以下のコマンドを実行する。
+
+    jekyll new (フォルダ名)
+
+## プレビュー
+
+
+フォルダに移動して
+
+    jekyll build
+
+
+
+_config-win.yml 
 
     highlighter: rouge
+
+Windows 用の設定ファイルを追加して、ビルド、プレビュー。
+
+    jekyll build --config _config.yml,_config-win.yml
+    jekyll serve --config _config.yml,_config-win.yml
+
+
+http://localhost:4000/ で接続する。
+
