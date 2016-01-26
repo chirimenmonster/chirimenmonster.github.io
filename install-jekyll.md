@@ -31,9 +31,7 @@ Rouge は Ruby で完結しているけど Pygments だとさらに Python が�
 インストールが楽なのは Rouge なのでこちらにする。
 
     gem install rouge
-
     gem install wdm
-
     jekyll new dirname
 
 add line to _config.yml
