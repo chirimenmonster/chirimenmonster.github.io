@@ -27,6 +27,7 @@ date: 2016-01-27 13:55:00 +0900
 #### フォントのインストールと設定
 
 参考: [ブラウザのフォントを綺麗にする方法メモ](http://prpr.hatenablog.jp/entry/2015/09/06/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%AE%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%82%92%E7%B6%BA%E9%BA%97%E3%81%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%E3%83%A1%E3%83%A2%EF%BC%88Windows%E4%B8%8A%E3%81%AEF) （Windows上のFirefox、Chrome）
+
 * フォント [源真ゴシック](http://jikasei.me/font/genshin/) と [IPAex明朝](http://ipafont.ipa.go.jp/) をインストール。
 * アドオン [Anti-Aliasing Tuner](https://addons.mozilla.org/ja/firefox/addon/anti-aliasing-tuner/?src=api) をインストール。
 
@@ -48,6 +49,7 @@ date: 2016-01-27 13:55:00 +0900
 | Anti-aliasing Mode | Clear Type |
 | Rendering Mode | Natural Symmetric |
 
+![Anti-Aliasing Tuner の設定](/images/2016-01-27-firefox-addon-antialiasingtuner.png)
 
 
 ### MacType
