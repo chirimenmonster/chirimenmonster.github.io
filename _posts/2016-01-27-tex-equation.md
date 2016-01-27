@@ -1,6 +1,7 @@
 ---
-title: TeX 数式サンプル
 layout: post
+title: TeX 数式サンプル
+date: 2016-01-27 13:45:00 +0900
 use_math: true
 ---
 

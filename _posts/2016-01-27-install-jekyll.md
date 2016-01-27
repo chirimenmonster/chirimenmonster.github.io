@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Jekyll で GitHub Pages をつくる
+date: 2016-01-27 11:50:00 +0900
 ---
 Windows PC に [Jekyll](https://jekyllrb.com/) をインストールして
 [GitHub Pages](https://pages.github.com/) で公開するまでの手順。
