@@ -1,6 +1,6 @@
 ---
 title: TeX 数式サンプル
-layout: default
+layout: post
 use_math: true
 ---
 
@@ -20,3 +20,8 @@ $$
     \end{array} \right)
 \end{align*}
 $$
+
+
+<!-- Local Variables: -->
+<!-- coding: utf-8 -->
+<!-- End: -->
