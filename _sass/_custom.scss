@@ -1,7 +1,33 @@
-/**
- * Paragraph stying
- */
+.post-content {
+    h5, h6 {
+        font-size: $base-font-size;
+    }
+}
+
+
 p {
     text-align: justify;
     text-justify: distribute-all-lines;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    word-break: keep-all;
+    margin-bottom: 1em;
+}
+
+table tr {
+    background-color: #FFF;
+    border-top: 1px solid #CCC;   
+}
+
+table th,
+table td {
+    padding: 6px 13px;
+    border: 1px solid #DDD;
+}
+
+table tr:nth-child(2n) {
+    background-color: #F8F8F8;
 }
