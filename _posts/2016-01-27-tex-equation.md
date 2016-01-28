@@ -75,9 +75,9 @@ Kramdown 以外のを使ってる人は頑張ってなんとかしよう。
 [さっきのリンク](http://jekyllrb.com/docs/extras/#math-support)
 にあるように以下のコードが HTML のどっかに埋め込まれるようにすればよい。
 
-~~~ html
+{% highlight html %}
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-~~~
+{% endhighlight %}
 
 よいのだけれど、GitHub Pages に https で接続したときにブラウザがエラーになる。
 ページが https なのに http で MathJax を読みにいくからだ。
