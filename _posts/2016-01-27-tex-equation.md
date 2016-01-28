@@ -83,31 +83,32 @@ Kramdown 以外のを使ってる人は頑張ってなんとかしよう。
 ページが https なのに http で MathJax を読みにいくからだ。
 
 そこで以下のようにする。
-プロトコル部分 ```http:``` を削除すれば
+プロトコル部分 `http:` を削除すれば
 HTML ドキュメントを読み込んだときと同じプロトコルで MathJax を読みにいく。
 幸い cdn.mathjax.org は https でもアクセスできる。
 
-~~~ html
+{% highlight html %}
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-~~~
+{% endhighlight %}
 
 このコードを新規に作成した _includes/math.html に記述しておいて、
 _include/head.html からインクルードさせる。
-以下は _includes/head.html の抜粋で、4行目の ```{% raw %}{% if page.use_math == true %}{% endraw %}``` と ```{% raw %}{% endif %}{% endraw %}``` で
+以下は _includes/head.html の抜粋で、4行目の `{% raw %}{% if page.use_math == true %}{% endraw %}` と `{% raw %}{% endif %}{% endraw %}` で
 囲まれた部分がそうだ。
 
-~~~ html
+{% highlight html %}
   {% raw %}<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   {% if page.use_math == true %}{% include math.html %}{% endif %}
 </head>{% endraw %}
-~~~
+{% endhighlight %}
 
-これでドキュメントの Front-Matter に ```use_math: true``` を書いたときだけ
+これでドキュメントの Front-Matter に `use_math: true` を書いたときだけ
 MathJax が読み込まれる。
 
-
-<!-- Local Variables: -->
-<!-- coding: utf-8 -->
-<!-- End: -->
+{% comment %}
+Local Variables:
+coding: utf-8
+End:
+{% endcomment %}
