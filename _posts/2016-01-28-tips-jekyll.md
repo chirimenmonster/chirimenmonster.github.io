@@ -78,7 +78,7 @@ _config.yml に以下の指定をするとコードブロックの区切りに
 ```` ``` ```` が使えるようになる、との記述を見たが、
 試した限りでは動かなかった。
 
-{% highlight yml %}
+{% highlight yaml %}
 kramdown:
   input: GFM
 {% endhighlight %}
