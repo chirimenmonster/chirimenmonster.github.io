@@ -18,6 +18,6 @@ timezone: +0900
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 
 exclude: ["Gemfile"]
