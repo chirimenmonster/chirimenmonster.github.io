@@ -38,6 +38,24 @@ $ pacman -Su
 
 時間をおいてやり直すか。
 
+...
+
+あきらめて、msys2を一旦アンインストールしてから再インストールした。
+
+{% highlight sh %}
+$ update-core
+(msys2を一旦終了して再実行)
+$ pacman -Su
+$ pacman -S base-devel
+$ pacman -S mingw-w64-x86_64
+$ pacman -S mingw-w64-i686
+$ pacman -S mingw-w64-x86_64-toolchain
+$ pacman -S mingw-w64-i686-toolchain
+{% endhighlight %}
+
+特にエラーとかなくインストールできたっぽい。
+
+
 # 参考
 + [Qiita:MSYS2における正しいパッケージの更新方法](http://qiita.com/k-takata/items/373ec7f23d5d7541f982)
 + [Qiita:MSYS2でパッケージのダウンロードに失敗するときの対処](http://qiita.com/k-takata/items/fcb2f1f9ca564fd78597)
