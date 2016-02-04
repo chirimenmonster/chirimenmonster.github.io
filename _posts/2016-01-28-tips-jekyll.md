@@ -23,8 +23,9 @@ Jekyll で GitHub Pages に載せる文書を書くようになったのだけ�
 
 Windows PC の Jekyll でプレビューして Git で GitHub に上げる使い方を想定している。
 
-マークダウンのエンジンは Kramdown で、コードハイライトは Pygments だ。
-ただし、プレビュー時のコードハイライトは Rouge で処理してる。
+マークダウンのエンジンは Kramdown で、コードハイライトは Rouge だ
+(2016/02/01 に GitHub Pages で使用する Jekyll が 3.0 になったのにともなって
+Pygments から Rouge に変更された)。
 
 ## TIPS
 
@@ -89,3 +90,19 @@ kramdown:
 参考: [Qiita: Markdown でバッククオートを含むインラインコードを書くには](http://qiita.com/uasi/items/251f4e66ceb95c043b3d)
 
 中に現れるバッククォートよりも多く連続するバッククォートで囲む。
+
+
+### PHP のシンタックスハイライト
+
+先頭行が `<?php` で始まっている必要がある。
+
+シンタックスハイライトのエンジンが pygments だと、
+startinline オプションを指定して
+`<?php` で開始しないコードブロックを PHP として処理させることが
+できたようだが、rouge だと動作しない。
+
+{% highlight liquid %}{% raw %}
+{% highlight php startinline %}
+echo $_SERVER['HTTP_USER_AGENT'];
+{% endhighlight %}
+{% endraw %}{% endhighlight %}
