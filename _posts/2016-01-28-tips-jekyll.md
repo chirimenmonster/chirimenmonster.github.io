@@ -106,3 +106,33 @@ startinline オプションを指定して
 echo $_SERVER['HTTP_USER_AGENT'];
 {% endhighlight %}
 {% endraw %}{% endhighlight %}
+
+
+### 時刻
+
+記事のタイムゾーンは OS のタイムゾーン、
+例えば環境変数 `TZ` が指定されているものが使用される。
+
+Jekyll のドキュメントでは
+_config.yml で `timezone: ` を指定すると
+OS のタイムゾーンの代わりに _config.yml で記述したものが使用されるとあったが、
+手元ではそうならなかった。
+
+`timezone: ` を指定すると内容にかかわらず UTF になってしまう。
+
+以下は TZ=Asia/Tokyo の状態で
+`date: 2016-02-04 09:03:00 +0900` を date_to_xmlschema で出力した結果。
+
+_config.yml で何も指定しない場合。
+
+```
+2016-02-04T09:03:00+09:00
+```
+
+_config.yml で `timezone: Asia/Tokyo` を指定した場合。
+
+```
+2016-02-04T00:03:00+00:00
+```
+
+
