@@ -52,6 +52,17 @@ date: 2016-01-27 13:55:00 +0900
 ![Anti-Aliasing Tuner の設定](/images/2016-01-27-firefox-addon-antialiasingtuner.png)
 
 
+### Thunderbird
+
+指定するフォントは Firefox と同じ。
+
+フォントのスムージングを有効にするため、設定エディタで以下の値を設定する。
+
+|パラメータ|値|
+|:---|:---|
+|gfx.font_rendering.directwrite.enabled|true|
+|gfx.font_rendering.cleartype_params.rendering_mode|5|
+
 ### MacType
 
 一部のフォント (例えば Ricty) を WIndows で使おうとすると、線の一部が消えてしまい使用に耐えないので MacType を適用する。一部のアプリケーションにのみ MacType を適用するため、設定ファイルで `UseInclude=1` を指定する。
