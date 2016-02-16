@@ -21,3 +21,6 @@ markdown: kramdown
 highlighter: rouge
 
 exclude: ["Gemfile"]
+
+gems:
+  - jekyll-sitemap
