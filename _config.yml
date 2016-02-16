@@ -5,6 +5,9 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+gems:
+  - jekyll-sitemap
+
 # Site settings
 title: めもらんだむ
 email: # your-email@domain.com
@@ -14,13 +17,12 @@ baseurl: "" # the subpath of your site, e.g. /blog
 # url: "http://yourdomain.com" # the base hostname & protocol for your site
 # twitter_username: chirimenspiral
 github_username:  chirimenmonster
-timezone: +0900
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 
+timezone: +0900
+
 exclude: ["Gemfile"]
 
-gems:
-  - jekyll-sitemap
