@@ -18,11 +18,18 @@ date: 2016-01-27 13:55:00 +0900
 ### フォントのリスト
 * IPAexフォント
 * 源真ゴシック
-* Ricty
+* [Ricty](https://github.com/yascentur/Ricty) ([Ricty Diminished](https://github.com/yascentur/RictyDiminished))
 
 ## 設定
 
 ### Firefox
+
+#### URL のトリミングを無効に
+
+|パラメータ|値|
+|:---|:---|
+|browser.urlbar.trimURLs|false|
+
 
 #### フォントのインストールと設定
 
@@ -60,8 +67,13 @@ date: 2016-01-27 13:55:00 +0900
 
 |パラメータ|値|
 |:---|:---|
+|gfx.direct2d.disabled|false|
 |gfx.font_rendering.directwrite.enabled|true|
+|gfx.font_rendering.cleartype_params.gamma|1200|
+|gfx.font_rendering.cleartype_params.enhanced_contrast|80|
+|gfx.font_rendering.cleartype_params.cleartype_level|100|
 |gfx.font_rendering.cleartype_params.rendering_mode|5|
+
 
 ### MacType
 
@@ -84,8 +96,16 @@ date: 2016-01-27 13:55:00 +0900
 参考: [Solarizedでターミナルを美しく](http://www.yuuan.net/item/675)
 
 * [Solarize](http://ethanschoonover.com/solarized) で配色設定を変更する。
-* フォント設定を Ricty Discord, 10-point にする。
-* MacType 適用アプリケーションに puttyjp.exe を追加する。
+* フォント設定を Ricty Discord, 10-point (または Ricty Diminished Discord, 10-point) にする。
+* MacType 適用アプリケーションに puttyjp.exe を追加する。 (または PuTTY 側で「フォントの品質」に ClearType を設定)
+
+## MSYS2 (mintty)
+
+* ダウンロードとインストール ([MSYS2 installer](https://msys2.github.io/))
+* Solarize に合わせた配色設定 (参考: [Color settings for the Cygwin mintty terminal](https://github.com/mavnn/mintty-colors-solarized))
+* proxy 設定 (参考: [msys2 + pacmanをproxy環境で使う](http://nantonaku-shiawase.hatenablog.com/entry/2014/10/11/163342))
+* `update-core` と `pacman -Su` で最新版に更新。ただし `update-core` の実行後、msys2 のウィンドウを閉じて再度 msys2 を実行する必要がある (参考: [Qiita:MSYS2における正しいパッケージの更新方法](http://qiita.com/k-takata/items/373ec7f23d5d7541f982), [MSYS2 installer](https://msys2.github.io/))。
+* 開発環境が必要な場合、`pacman -S base-devel`, `pacman -S mingw-w64-x86_64-toolchain` で必要なパッケージをインストール。
 
 
 <!-- Local Variables: -->
