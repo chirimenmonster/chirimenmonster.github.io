@@ -125,4 +125,13 @@ ifcfg-eth0 を修正してもダメ。
 
 他にも修正しなければいけないところがあったもよう。
 
-[centos6.2のMACアドレス変更手順](http://spring-mt.tumblr.com/post/27897296877/centos62%E3%81%AEmac%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E5%A4%89%E6%9B%B4%E6%89%8B%E9%A0%86)
+参考: [centos6.2のMACアドレス変更手順](http://spring-mt.tumblr.com/post/27897296877/centos62%E3%81%AEmac%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E5%A4%89%E6%9B%B4%E6%89%8B%E9%A0%86)
+
+
+### ポートの開放
+
+インストール後は ssh (TCP 22) くらいしかポートが開放されていない。設定は /etc/sysconfig/iptables で行う。
+
+ファイルの修正が終わったら、`service iptables restart` で設定を反映させる。
+
+参考: [CentOS に iptables の設定を行う (IPv4)](http://www.websec-room.com/2014/01/12/1511)
