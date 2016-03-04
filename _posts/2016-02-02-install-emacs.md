@@ -25,7 +25,8 @@ Emacs が使用できる。
 (tool-bar-mode 0)
 
 ;; デフォルトフォント設定
-(add-to-list 'default-frame-alist '(font . "ricty-12"))
+;(add-to-list 'default-frame-alist '(font . "ricty-12"))
+(add-to-list 'default-frame-alist '(font . "Ricty Diminished Discord-10"))
 
 ;; tramp から plink が使えるように PATH に PuTTY フォルダを追加
 ;; ここでは PuTTY はユーザーのドキュメントフォルダに置いている
@@ -41,3 +42,4 @@ Emacs が使用できる。
 
 # 参考
 + [GitHub:chuntaro/NTEmacs64](https://github.com/chuntaro/NTEmacs64)
++ [Qiita:Emacs のフォント設定について](http://qiita.com/melito/items/238bdf72237290bc6e42)
