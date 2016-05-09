@@ -22,7 +22,8 @@ github_username:  chirimenmonster
 markdown: kramdown
 highlighter: rouge
 
-timezone: +0900
+#timezone: +0900
+timezone: JPN
 
 exclude: ["Gemfile"]
 
