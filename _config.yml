@@ -25,20 +25,80 @@ github_username:  chirimenmonster
 
 # Build settings
 markdown: kramdown
-theme: minima
+#theme: minima
+theme: bulma-clean-theme
 
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - kramdown-parser-gfm
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
+# Site Settings
+lang: ja
+tagline: Bulma Clean Theme
+permalink: pretty
+#favicon: /path/to/favicon.png
+gh_sponsor: chrisrhymes
+#hide_share_buttons: true
+#theme_color: '#eeeeee'
+#fixed_navbar: top
+
+paginate: 5
+paginate_path: "/./page:num"
+
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  # shortname: my_disqus_shortname
+  shortname: csrhymes
+
+exclude: 
+  - Gemfile
+  - clean-theme.gemspec
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+#livereload: true
+
+sass:
+  style: compressed
+  source_dir: _sass
+
+#google_analytics: UA-code-here
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      show_sidebar: true
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      author: "chirimen"
+      layout: post
+      #image: https://via.placeholder.com/1200x800
+      show_sidebar: true
+
+#highlighter: rouge
+
+menu_bar: example_menu
+footer_menu: example_footer_menu
+
+collections:
+  products: 
+    output: true
+    layout: product
+    #image: https://via.placeholder.com/800x600
+    show_sidebar: false
