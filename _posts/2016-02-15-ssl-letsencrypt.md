@@ -12,23 +12,23 @@ date: 2016-02-15 13:30:00 +0900
 適当なディレクトリ (作業用) で以下のコマンドを実行する。
 
 
-{% highlight session %}
+```sh
 $ git clone https://github.com/letsencrypt/letsencrypt
 $ cd letsencrypt
-{% endhighlight %}
+```
 
 Let's Encrypt クライアントをインストールする、
 の前に CentOS 6 の場合はあらかじめ EPEL リポジトリを有効にしておく必要があった。
 
-{% highlight session %}
+```sh
 $ sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-{% endhighlight %}
+```
 
 Let's Encrypt クライアントをインストールする。
 
-{% highlight session %}
+```sh
 $ ./letsencrypt-auto
-{% endhighlight %}
+```
 
 なんか ~/.local/share/letsencrypt にインストールされた、
 けどこのあとも ./letencrypt-auto を実行するのでいいらしい。
@@ -51,9 +51,9 @@ $ ./letsencrypt-auto
 本番証明書の取得は回数制限があるそうなので、
 手順が飲み込めるまではテスト証明書で練習しておく。
 
-{% highlight session %}
+```sh
 $ ./letsencrypt-auto certonly --webroot --test-cert -w (ドキュメントルート) -d (ドメイン)
-{% endhighlight %}
+```
 
 実行すると /etc/letsencrypt/live/(ドメイン) の中に
 privkey.pem, fullchain.pem, chain.pem, cert.pem
@@ -67,32 +67,32 @@ privkey.pem, fullchain.pem, chain.pem, cert.pem
 Apache なら秘密鍵 privkey.pem と
 全部入りの証明書 fullchain.pem を使うのでよい。
 
-{% highlight text %}
+```
 SSLCertificateKeyFile /etc/letsencrypt/live/(ドメイン)/privkey.pem
 SSLCertificateFile /etc/letsencrypt/live/(ドメイン)/fullchain.pem
-{% endhighlight %}
+```
 
 Apache に graceful start で新しい SSL 設定を読ませる。
 
-{% highlight session %}
+```sh
 $ sudo apachectl graceful
-{% endhighlight %}
+```
 
 実際は CentOS 6 の SCL リポジトリの Apache24 をインストールしているので
 以下のコマンドを打っている。
 
-{% highlight session %}
+```sh
 $ sudo scl enable httpd24 'apachectl graceful' 
-{% endhighlight %}
+```
 
 これで取得した証明書を使って https で接続できるわけだが、
 テスト用の証明書なのでブラウザに読ませると不正な証明書扱いになる。
 ちなみに issuer は happy hacker fake CA となっている。
 
-{% highlight session %}
+```sh
 $ sudo openssl x509 -in cert.pem -noout -issuer
 issuer= /CN=happy hacker fake CA
-{% endhighlight %}
+```
 
 
 ### 本番証明書を取得する
@@ -106,9 +106,9 @@ issuer= /CN=happy hacker fake CA
 オプション `--aggree-tos` は
 Let's Encrypt のサービス利用規約 (terms of service) に同意する指定。
 
-{% highlight session %}
+```sh
 $ ./letsencrypt-auto certonly --webroot -w (ドキュメントルート) -d (ドメイン) -m (メールアドレス) -n --agree-tos
-{% endhighlight %}
+```
 
 この指定でいけるかと思ったのだが、
 さっき取得したテスト証明書があったので更新扱いになるようだ。

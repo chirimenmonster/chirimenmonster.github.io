@@ -9,18 +9,18 @@ MSYS2 のアップデートをしたときのメモ
 
 `update-core` コマンドを実行する。
 
-{% highlight sh %}
+```shell
 $ update-core
-{% endhighlight %}
+```
 
 更新があったら MSYS2 を一旦再起動する (重要)。
 終了するときには Alt-F4 あるいはクローズボタンを使用する。
 
 `pacman -Su` を実行する。
 
-{% highlight sh %}
+```shell
 $ pacman -Su
-{% endhighlight %}
+```
 
 
 で、なぜかエラー。
@@ -48,7 +48,7 @@ $ pacman -Su
 から 64bit 版 msys2 インストーラ
 msys2-x86_64-20150916.exe をダウンロードして実行する。
 
-{% highlight sh %}
+```sh
 $ update-core
 (msys2を一旦終了して再実行)
 $ pacman -Su
@@ -57,7 +57,7 @@ $ pacman -S mingw-w64-x86_64
 $ pacman -S mingw-w64-i686
 $ pacman -S mingw-w64-x86_64-toolchain
 $ pacman -S mingw-w64-i686-toolchain
-{% endhighlight %}
+```
 
 ### 32bit 版 Windows の場合
 
@@ -65,14 +65,14 @@ $ pacman -S mingw-w64-i686-toolchain
 から 32bit 版 msys2 インストーラ
 msys2-i686-20150916.exe をダウンロードして実行する。
 
-{% highlight sh %}
+```sh
 $ update-core
 (msys2を一旦終了して再実行)
 $ pacman -Su
 $ pacman -S base-devel
 $ pacman -S mingw-w64-i686
 $ pacman -S mingw-w64-i686-toolchain
-{% endhighlight %}
+```
 
 
 特にエラーとかなくインストールできたっぽい。

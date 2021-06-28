@@ -2,7 +2,7 @@
 layout: post
 title: GitHub Pages + Jekyll で作成する文書に TeX 数式を埋める
 date: 2016-01-27 13:45:00 +0900
-use_math: true
+mathjax: true
 ---
 [Jekyll](https://jekyllrb.com/) で [GitHub Pages](https://pages.github.com/)
 に公開するドキュメントに数式を入れる話。
@@ -75,9 +75,9 @@ Kramdown 以外のを使ってる人は頑張ってなんとかしよう。
 [さっきのリンク](http://jekyllrb.com/docs/extras/#math-support)
 にあるように以下のコードが HTML のどっかに埋め込まれるようにすればよい。
 
-{% highlight html %}
+```html
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-{% endhighlight %}
+```
 
 よいのだけれど、GitHub Pages に https で接続したときにブラウザがエラーになる。
 ページが https なのに http で MathJax を読みにいくからだ。
@@ -87,22 +87,22 @@ Kramdown 以外のを使ってる人は頑張ってなんとかしよう。
 HTML ドキュメントを読み込んだときと同じプロトコルで MathJax を読みにいく。
 幸い cdn.mathjax.org は https でもアクセスできる。
 
-{% highlight html %}
+```html
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-{% endhighlight %}
+```
 
 このコードを新規に作成した _includes/math.html に記述しておいて、
 _include/head.html からインクルードさせる。
 以下は _includes/head.html の抜粋で、4行目の `{% raw %}{% if page.use_math == true %}{% endraw %}` と `{% raw %}{% endif %}{% endraw %}` で
 囲まれた部分がそうだ。
 
-{% highlight html %}
+```html
   {% raw %}<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   {% if page.use_math == true %}{% include math.html %}{% endif %}
 </head>{% endraw %}
-{% endhighlight %}
+```
 
 これでドキュメントの Front-Matter に `use_math: true` を書いたときだけ
 MathJax が読み込まれる。

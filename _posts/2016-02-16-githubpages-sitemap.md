@@ -10,16 +10,16 @@ GitHub Pages で sitemap を生成させる手順。
 ローカル環境に jekyll-sitemap をインストールする。
 手元で確認するために必要。
 
-{% highlight session %}
+```sh
 $ gem install jekyll-sitemap
-{% endhighlight %}
+```
 
 _config.yml に jekyll-sitemap の記述を追加する。
 
-{% highlight yml %}
+```yml
 gems:
   - jekyll-sitemap
-{% endhighlight %}
+```
 
 ## 参考
 + [Jekyll Sitemap Generator Plugin](https://github.com/jekyll/jekyll-sitemap)

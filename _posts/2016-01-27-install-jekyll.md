@@ -95,11 +95,11 @@ DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe を実行
 + 自己展開ファイルになっているので展開場所に C:\RubyDevKit を指定
 + コマンドプロンプトで以下のコマンドを実行する
 
-{% highlight batch %}
+```batch
 cd C:\RubyDevKit
 ruby dk.rb init
 ruby dk.rb install
-{% endhighlight %}
+```
 
 Ruby がインストールされている場所を自動的に探して設定される。
 
@@ -113,10 +113,9 @@ Jekyll は Ruby のパッケージ管理システム  (RubyGems) で管理され
 Proxy 環境では環境変数 (http_proxy) かオプション (-p)
 でプロキシサーバを指定する必要がある。
 
-{% highlight batch %}
+```batch
 gem install jekyll
-{% endhighlight %}
-
+```
 
 ### シンタックスハイライト用のツール
 
@@ -132,10 +131,9 @@ Rouge は Ruby で動くので追加のツールは必要ない。
 インストールが楽なのは Rouge なのでこちらにする。
 もしかしたら Rouge は Jekyll と一緒にすでに入っていたかもしれない。
 
-{% highlight batch %}
+```batch
 gem install rouge
-{% endhighlight %}
-
+```
 
 ### 監視用のツール
 
@@ -147,9 +145,9 @@ Wdm はその辺のところをやってくれる。
 
 ここまで来たら四の五の言わずに黙って入れよう。
 
-{% highlight batch %}
+```batch
 gem install wdm
-{% endhighlight %}
+```
 
 
 ## 最初のビルド
@@ -164,9 +162,9 @@ Jekyll でビルドするのに設定ファイルとかフォルダ構成とか�
 新規にフォルダを作成するなら、`jekyll new` で環境を作ってから GitHub にプッシュすればいいし、
 空の GitHub Pages のプロジェクトフォルダに対して `jekyll new` してもいい。
 
-{% highlight batch %}
+```batch
 jekyll new (フォルダ名)
-{% endhighlight %}
+```
 
 これでビルドに必要なフォルダ構成と、設定ファイル、ソースが設置される。
 
@@ -175,9 +173,9 @@ jekyll new (フォルダ名)
 
 ビルドはプロジェクトフォルダで以下のコマンドを実行する。
 
-{% highlight batch %}
+```batch
 jekyll build
-{% endhighlight %}
+```
 
 
 生成された HTML ファイルは _site に置かれる。
@@ -187,9 +185,9 @@ jekyll build
 以下のコマンドを実行するとプレビュー用の web サーバが起動する。
 サーバはフォアグラウンドで実行されるので、不要になったら Ctrl-C とかで終了させる。
 
-{% highlight batch %}
+```batch
 jekyll serve
-{% endhighlight %}
+```
 
 ブラウザからは http://localhost:4000/ にアクセスする。
 もちろんサーバが終了してたら接続できない。
@@ -205,17 +203,17 @@ jekyll serve
 
 そこで、別の設定ファイルとして _config-win.yml を新規に作成し、そこで rouge を指定する。
 
-{% highlight batch %}
+```batch
 highlighter: rouge
-{% endhighlight %}
+```
 
 ビルド、プレビューの時には jekyll のオプション --config で、_config.yml と _config-win.yml を指定する。
 このようにすれば、_config-win.yml で記述した部分が優先される。 
 
-{% highlight batch %}
+```batch
 jekyll build --config _config.yml,_config-win.yml
 jekyll serve --config _config.yml,_config-win.yml
-{% endhighlight %}
+```
 
 プレビュー用のサーバが起動している間は、ソースを更新すると自動的に再ビルドしてくれる。
 設定ファイルの更新は対象外なのでいったん終了する必要がある。

@@ -17,7 +17,7 @@ msys2_shell.bat などの起動バッチファイルが削除されていて、
 
 とりあえず pacman -S base で更新してみる。
 
-{% highlight dos %}
+```
 $ pacman -S base
 :: 40 のパッケージがグループ base にあります:
 :: リポジトリ msys
@@ -32,7 +32,7 @@ $ pacman -S base
           * MSYS2_ROOT\msys2_shell.cmd -msys
 
 (略)
-{% endhighlight %}
+```
 
 メッセージに出てきたようにメニューのショットカットを修正すればいいみたい。
 
