@@ -22,10 +22,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 repository: "chirimenmonster/chirimenmonster.github.io"
 twitter_username: chirimenspiral
 github_username:  chirimenmonster
+lang: ja
+timezone: Asia/Tokyo
 
 # Build settings
 markdown: kramdown
-#theme: minima
 theme: bulma-clean-theme
 
 plugins:
@@ -35,45 +36,35 @@ plugins:
   - jekyll-seo-tag
   - kramdown-parser-gfm
 
-
-# Site Settings
-lang: ja
-tagline: Bulma Clean Theme
-permalink: pretty
-#favicon: /path/to/favicon.png
-gh_sponsor: chrisrhymes
-#hide_share_buttons: true
-#theme_color: '#eeeeee'
-#fixed_navbar: top
-
-paginate: 5
-paginate_path: "/./page:num"
-
-# Disqus Comments
-disqus:
-  # Leave shortname blank to disable comments site-wide.
-  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-  # shortname: my_disqus_shortname
-  shortname: csrhymes
-
 exclude: 
   - Gemfile
-  - clean-theme.gemspec
   - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-
-#livereload: true
 
 sass:
   style: compressed
-  source_dir: _sass
 
-#google_analytics: UA-code-here
 
+# jekyll-seo-tag
+locale: ja_JP
+tagline: 個人的なおぼえがき
+author:
+  twitter: chirimenspiral
+twitter:
+  username: chirimenspiral
+  card: summary
+social:
+  name: Chirimen
+  links:
+    - https://twitter.com/chirimenspiral
+    - https://github.com/chirimenmonster
+
+
+# jekyll-paginate
+paginate: 5
+paginate_path: "/./page:num"
+
+
+# Site Settings for bulma-clean-theme
 defaults:
   -
     scope:
@@ -86,19 +77,6 @@ defaults:
       path: ""
       type: "posts"
     values:
-      author: "chirimen"
-      layout: post
-      #image: https://via.placeholder.com/1200x800
+      layout: "post"
+      author: "Chirimen"
       show_sidebar: true
-
-#highlighter: rouge
-
-menu_bar: example_menu
-footer_menu: example_footer_menu
-
-collections:
-  products: 
-    output: true
-    layout: product
-    #image: https://via.placeholder.com/800x600
-    show_sidebar: false
