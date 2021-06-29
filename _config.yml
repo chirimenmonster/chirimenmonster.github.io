@@ -76,6 +76,11 @@ paginate_path: "/./page:num"
 defaults:
   -
     scope:
+      path: "404.html"
+    values:
+      show_sidebar: false
+  -
+    scope:
       path: ""
       type: "pages"
     values:
