@@ -53,6 +53,8 @@ sass:
 #   - vendor/ruby/
 
 
+google_analytics: UA-59819729-5
+
 # jekyll-seo-tag
 locale: ja_JP
 tagline: 個人的なおぼえがき
