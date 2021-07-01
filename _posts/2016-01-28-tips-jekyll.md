@@ -35,12 +35,11 @@ Pygments から Rouge に変更された)。
 で囲まれた部分がコメントアウトされる。
 HTML に出力されない。
 
-{% highlight text %}
+```text
 {% raw %}{% comment %}
 囲まれた部分がコメントとして無視される
 {% commentout %}{% endraw %}
-{% endhighlight %}
-
+```
 
 ### Liquid のエスケープ
 
@@ -50,14 +49,14 @@ HTML に出力されない。
 または `{% raw %}{{ "何か" }}{% endraw %}` で Liquid として解釈されないように分割する。
 
 例1:
-{% highlight text %}
+```
 {% raw %}{% raw %}{% something %}{% endraw %}{{ "{% endraw " }}%}
-{% endhighlight %}
+```
 
 例2:
-{% highlight text %}
+```
 {% raw %}{{ "{% something " }}%}{% endraw %}
-{% endhighlight %}
+```
 
 2番目の例では `{% raw %}{% something %}{% endraw %}` を
 `{% raw %}"{% somthing "{% endraw %}` と `{% raw %}"%}"{% endraw %}`
@@ -79,10 +78,10 @@ _config.yml に以下の指定をするとコードブロックの区切りに
 ```` ``` ```` が使えるようになる、との記述を見たが、
 試した限りでは動かなかった。
 
-{% highlight yaml %}
+```yaml
 kramdown:
   input: GFM
-{% endhighlight %}
+```
 
 
 ### バッククォートが含まれるインラインコード
@@ -101,11 +100,11 @@ startinline オプションを指定して
 `<?php` で開始しないコードブロックを PHP として処理させることが
 できたようだが、rouge だと動作しない。
 
-{% highlight liquid %}{% raw %}
-{% highlight php startinline %}
+```liquid
+{% raw %}{% highlight php startinline %}
 echo $_SERVER['HTTP_USER_AGENT'];
-{% endhighlight %}
-{% endraw %}{% endhighlight %}
+{% endhighlight %}{% endraw %}
+```
 
 
 ### 時刻

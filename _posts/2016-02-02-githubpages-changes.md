@@ -15,8 +15,8 @@ GitHub Pages の Jekyll が 3.0 になって、
 highlight が Rouge に変更されたようなので、
 _config.yml での指定を書き換え。
 
-{% highlight yaml %}
+```yaml
 highlighter: rouge
-{% endhighlight %}
+```
 
 あとで詳しく見ていくつもり。

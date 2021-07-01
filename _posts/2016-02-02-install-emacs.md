@@ -20,7 +20,7 @@ Emacs が使用できる。
 
 ~/.emacs.d/init.el の内容
 
-{% highlight elisp %}
+```elisp
 ;; ツールバー非表示
 (tool-bar-mode 0)
 
@@ -38,7 +38,7 @@ Emacs が使用できる。
 (require 'tramp)
 (setq tramp-default-method "plink")
 (setq tramp-shell-prompt-pattern "^[ $]+")
-{% endhighlight %}
+```
 
 # 参考
 + [GitHub:chuntaro/NTEmacs64](https://github.com/chuntaro/NTEmacs64)

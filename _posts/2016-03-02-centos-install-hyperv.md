@@ -108,7 +108,9 @@ man がないのは不便なので `yum install man` も実行しておく。
 
 ### 実行してみる
 
+```
 /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory
+```
 
 [SLUMBERS:CentOS 64bit で /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory って怒られた際にやったこと](http://slumbers99.blogspot.jp/2012/04/centos-64bit-libld-linuxso2-bad-elf.html)
 によれば CentOS 64bit で 32bit コマンドを動かそうとしたかららしい。

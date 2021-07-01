@@ -22,14 +22,19 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 repository: "chirimenmonster/chirimenmonster.github.io"
 twitter_username: chirimenspiral
 github_username:  chirimenmonster
+lang: ja
+timezone: Asia/Tokyo
 
 # Build settings
 markdown: kramdown
-theme: minima
+remote_theme: chrisrhymes/bulma-clean-theme
 
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+sass:
+  style: compressed
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -42,3 +47,48 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+google_analytics: UA-59819729-5
+
+# jekyll-seo-tag
+locale: ja_JP
+tagline: 個人的なおぼえがき
+author:
+  twitter: chirimenspiral
+twitter:
+  username: chirimenspiral
+  card: summary
+social:
+  name: Chirimen
+  links:
+    - https://twitter.com/chirimenspiral
+    - https://github.com/chirimenmonster
+
+
+# jekyll-paginate
+paginate: 5
+paginate_path: "/./page:num"
+
+
+# Site Settings for bulma-clean-theme
+defaults:
+  -
+    scope:
+      path: "404.html"
+    values:
+      show_sidebar: false
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      show_sidebar: true
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Chirimen"
+      show_sidebar: true

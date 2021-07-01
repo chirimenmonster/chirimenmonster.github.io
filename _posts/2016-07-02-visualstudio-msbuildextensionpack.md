@@ -20,7 +20,7 @@ MSBuild.ExtensionPack.tasks をインポートする。
 ExtentionTasksPath には MSBuild.ExtensionPack.tasks へのパスを設定しておく。
 パスの末尾は "\\" で終了するようにする。
 
-{% highlight xml %}
+```xml
 <PropertyGroup>
     <ExtensionTasksPath>c:\Program Files\MSBuild\ExtensionPack\4.0\</ExtensionTasksPath>
 </PropertyGroup>
@@ -29,5 +29,4 @@ ExtentionTasksPath には MSBuild.ExtensionPack.tasks へのパスを設定し�
 <MSBuild.ExtensionPack.Compression.Zip TaskAction="Create"
     CompressFiles="@(TS3Files)" RemoveRoot="$(OutputDir)"
     ZipFileName="$(OutputDir)\$(AppName).ts3_plugin" />
-{% endhighlight %}
-        
+```
