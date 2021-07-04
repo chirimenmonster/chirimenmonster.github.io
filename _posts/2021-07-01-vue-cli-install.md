@@ -7,23 +7,40 @@ title: Vue CLI のインストール
 [Vue CLI: Creating a Project](https://cli.vuejs.org/guide/creating-a-project.html)
 に従って、
 Vue CLI のインストールから
-プロジェクトの作成、ビルドまでの一連の手順をやってみる。
+プロジェクトの作成、ビルドまでの一連の手順をやってみた。
 
-## インストール
+## 概要
 
-[Vue CLI: Instant Prototyping](https://cli.vuejs.org/guide/prototyping.html)
-に従って
-@vue/cli と @vue/cli-service-global
-の2つのパッケージをインストールする。
+`npm install -g @vue/cli @vue/cli-servie-global` で Vue CLI をインストールする。
+
+`vue create` で新規 Vue プロジェクトを作成。
+`npm run serve` でローカルサーバを立ち上げてブラウザで動作確認し、
+`npm run build` でサーバ設置用のファイルを作成する。
+
+`vue serve`, `vue build` は基本的に使わない。
+
+
+## Vue CLI をインストールする
+
+Vue CLI 公式ガイドの
+[Installation](https://cli.vuejs.org/guide/installation.html)
+の章によれば、
+Vue CLI のインストールは
+`npm install -g @vue/cli`
+でよいらしいが、
+同文書の
+[Instant Prototyping](https://cli.vuejs.org/guide/prototyping.html)
+の章を読むと、
+`@vue/cli-service-global`
+というパッケージも必要らしい。
 
 ```
 npm install -g @vue/cli @vue/cli-service-global
 ```
 
-インストールを実行すると、
+インストールを実行したときのコンソール出力は次のようになった。
 依存関係でインストールされてるらしいパッケージのいくつかに
-deprected だっていう Warning が出てきた。
-問題ないのかな。
+**deprecated** だっていう Warning が出ているが問題ないのかな。
 
 ```
 PS D:\test> npm install -g @vue/cli @vue/cli-service-global
@@ -94,26 +111,46 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
 added 2259 packages from 852 contributors in 174.198s
 ```
 
-インストールが完了したのでバージョンを確認。
+インストールが完了したのでバージョンを確認する。
+ここで `4.5.13` と表示されているのは
+Vue のバージョンではなく Vue CLI のバージョンだ。
 
 ```
 PS D:\test> vue --version
 @vue/cli 4.5.13
 ```
 
-## プロジェクトの作成
+依存関係でインストールされているはずの Vue のバージョンを
+確認してみると `2.6.14` だった。
+なお、Vue プロジェクトを作成する際に Vue 3 を指定できるので、
+Vue 3 を使う場合でもこれで構わないようだ。
 
-[Vue CLI: Creating a Project](https://cli.vuejs.org/guide/creating-a-project.html)
-に従って、
-hello-world という名前の新規プロジェクトを作成する。
+```
+PS D:\test> npm list -g vue
+C:\Users\myname\AppData\Roaming\npm
++-- @vue/cli@4.5.13
+| `-- vue@2.6.14
+`-- @vue/cli-service-global@4.5.13
+  `-- vue@2.6.14
+```
+
+
+
+## Vue プロジェクトを作成する
+
+Vue CLI 公式ガイドの
+[Creating a Project](https://cli.vuejs.org/guide/creating-a-project.html)
+の例に従って、
+`hello-world` という名前の新規プロジェクトを作成する。
+Vue プロジェクトを作成するコマンドは `vue create` だ。
 
 ```
 PS D:\test> vue create hello-world
 ```
 
 `vue create` を実行すると、
-次のようにプロジェクトを Vue 2 用として作成するか、
-Vue 3 用として作成するかを選択するメニューが表示される。
+プロジェクトを Vue 2 用として作成するか、
+Vue 3 用として作成するかを選択する次のようなメニューが表示される。
 
 ```
 Vue CLI v4.5.13
@@ -124,6 +161,7 @@ Vue CLI v4.5.13
 ```
 
 ここでは、Vue 3 用を選択する。
+コンソール出力は次のようになった。 
 
 ```
 Vue CLI v4.5.13
@@ -179,14 +217,17 @@ found 10 vulnerabilities (7 moderate, 3 high)
 
 ```
 
+コンソール出力の最後は、
+開始するためにフォルダ `hello-world` に移動して
+`npm run serve` を実行せよとなっている。
 
-## 動作確認
+## Vue プロジェクトの動作確認
 
 ローカルサーバの実行はプロジェクトのフォルダに移動して
-`npm run serve` を実行する。
-`App.vue` を置いているフォルダで `vue serve` を実行するのではない。
+`npm run serve` を実行する、となっている。
+`App.vue` を置いているフォルダ `src` で `vue serve` を実行するのではない。
 
-デフォルトでは localhost:8080 で接続できる。
+デフォルトでは `localhost:8080` で接続できる。
 
 ```
 PS D:\test> cd hello-world
@@ -203,14 +244,16 @@ PS D:\test\hello-world> npm run serve
 
   App running at:
   - Local:   http://localhost:8080/
-  - Network: http://192.168.0.142:8080/
+  - Network: http://192.168.0.xxx:8080/
 
   Note that the development build is not optimized.
   To create a production build, run npm run build.
 ```
 
+![Vueサーバーの起動](/images/2021-07-02-vue-project-init.png)
 
-## コンパイル
+
+## Vue プロジェクトのビルド
 
 ウェブサーバに設置するファイルためのを作成するには、
 プロジェクトのフォルダで
@@ -246,7 +289,8 @@ dist に作成されたファイルはウェブサーバに設置する前提で
 ローカルのブラウザで動作確認できるようにするには、
 './' で開始する相対パスになるように設定を変更する必要がある。
 
-vue.config.js を作成し、以下のように `publicPath` の設定を行う。
+プロジェクトのフォルダに `vue.config.js` を作成し、
+次のように `publicPath` に `./` を設定する。
 
 ```
 module.exports = {
