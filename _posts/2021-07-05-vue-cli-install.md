@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vue CLI のインストール
+date: 2021-07-05 21:50 +0900
 ---
 
 [Vue CLI: Instant Prototyping](https://cli.vuejs.org/guide/prototyping.html)
@@ -250,7 +251,7 @@ PS D:\test\hello-world> npm run serve
   To create a production build, run npm run build.
 ```
 
-![Vueサーバーの起動](/images/2021-07-02-vue-project-init.png)
+![Vueサーバーの起動](/images/2021-07-05-vue-project-init.png)
 
 
 ## Vue プロジェクトのビルド
@@ -297,3 +298,7 @@ module.exports = {
     publicPath: './'
 }
 ```
+
+サーバを用意せずにローカルのファイルを直接ブラウザで読み込んで確認できるようになる。
+
+![Vueでビルドされたファイルを直接読み込む](/images/2021-07-05-vue-project-init-local.png)
