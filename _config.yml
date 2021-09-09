@@ -90,5 +90,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Chirimen"
+      author:
+        name: "Chirimen"
+        twitter: "chirimenspiral"
       show_sidebar: true

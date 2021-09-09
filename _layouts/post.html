@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{% comment %}
+    https://github.com/chrisrhymes/bulma-clean-theme/blob/master/_layouts/post.html
+    page.author を page.author.name に
+{% endcomment %}
+
+<div class="content">
+
+    <p>Published: {{ page.date | date: "%F %H:%M %z" }} by {{ page.author.name }}
+        {%- if page.last_modified_at -%}
+        , Modified: {{ page.last_modified_at  | date: "%F %H:%M %z" }}
+        {%- endif -%}
+    </p>
+
+    {{ content }}
+</div>
+
+<div class="tags">
+    {% for tag in page.tags %}
+      {% include tag.html tag=tag %}
+    {% endfor %}
+</div>
+
+{% unless site.hide_share_buttons %}
+{% include share-buttons.html %}
+{% endunless %}
+
+{% if site.disqus.shortname %}
+  {% include disqus.html %}
+{% endif %}
