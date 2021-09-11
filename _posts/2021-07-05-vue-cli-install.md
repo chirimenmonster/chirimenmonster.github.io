@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Vue CLI のインストール
+image: /images/2021-07-05-preview.png
 date: 2021-07-05 21:50 +0900
+last_modified_at: 2021-09-11 10:10 +0900
 ---
 
 [Vue CLI: Instant Prototyping](https://cli.vuejs.org/guide/prototyping.html)
@@ -12,7 +14,7 @@ Vue CLI のインストールから
 
 ## 概要
 
-`npm install -g @vue/cli @vue/cli-servie-global` で Vue CLI をインストールする。
+`npm install -g @vue/cli @vue/cli-service-global` で Vue CLI をインストールする。
 
 `vue create` で新規 Vue プロジェクトを作成。
 `npm run serve` でローカルサーバを立ち上げてブラウザで動作確認し、
