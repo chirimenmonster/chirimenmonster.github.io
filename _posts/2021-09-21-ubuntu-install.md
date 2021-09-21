@@ -52,11 +52,13 @@ HeroBox 全面の USB 3.0 コネクタではブートメディアとして認識
 
 LANケーブルも挿しておく。
 
-### Ubuntu のインストール
+### デフォルト設定でインストール
 
 画面の指示に従ってインストール。
 ほとんどデフォルトのままで、
 設定したのはキーボードの種類と初期アカウントくらい。
+
+インストールが終わったら USB メモリを抜いて再起動。
 
 ### ネットワーク設定の変更
 
@@ -78,7 +80,11 @@ network:
   version: 2
 ```
 
-同じディレクトリに `99-config.yaml` という名前で、
+サーバ運用なので IP アドレスは静的に設定したい、
+が、その他の設定、デフォルトゲートウェイなど、
+は DHCP から設定を持ってきたいところ。
+
+そこで、同じディレクトリに `99-config.yaml` という名前で、
 次のようなファイルを作成する。
 
 ```yaml
@@ -112,24 +118,48 @@ herobox$ ip address
 (略)
 ```
 
-
-
-サーバなので、固定アドレスを設定。
+不要な IP アドレスが余分に割り当てられた形となってしまったが、
+DHCP クライアントとしての一貫性を保つためにはこの形がよいのかな。
 
 ### ホームディレクトリを autofs で NFS マウントする
+
+NAS サーバにホームディレクトリがあるので、
+autofs で NFS マウントする設定を行う。
+
+autofs はインストールされていないので、
+`apt install` で追加する。
+NFS クライアントに必要な nfs-common も依存関係でインストールされる。
 
 ```
 herobox$ sudo apt install autofs
 ```
 
+`/home` にマウントさせるので、
+次のような内容で
 `/etc/auto.master.d/home.autofs`
+を作成する。
+拡張子が `.autofs` であればよいので、
+`home.autofs` である必要はないのだが、
+マウントポイントがわかりやすいようにしておく。
 
 ```
 /home   /etc/auto.home
 ```
 
-`/etc/auto.home`
+1列目の `/home` はマウントポイントで、
+2列目の `/etc/auto.home` はマップファイル名である。
+
+マップファイル `/etc/auto.home` には次のように、
+key と option、location を記述する。
+key はマウントポイントに対するサブディレクトリ名、
+options はマウントコマンドに対するオプション、
+locatioon はリモートファイルシステムのパス (NFS の場合) である。
 
 ```
 foo    -rw,soft,intr   nas.example.com:/homes/foo
 ```
+
+したがって、この例の場合、
+`/home/foo` にアクセスした場合に
+`mount -t nfs -o rw,soft,intr nas.example.com:/homes/foo`
+相当が行われることになる。
