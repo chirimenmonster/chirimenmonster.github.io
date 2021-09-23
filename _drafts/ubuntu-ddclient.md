@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ubuntu ddclient
+title: Cloudflare を DDNS として利用する
 ---
 外部から自宅サーバを操作するのには
 Cloudflare で DDNS やるのが手っ取り早そうだった。
