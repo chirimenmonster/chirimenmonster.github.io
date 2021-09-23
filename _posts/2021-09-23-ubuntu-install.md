@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Ubuntu サーバのインストール
-date: 2021-09-22 21:00 +0900
+date: 2021-09-23 11:00 +0900
+image: /images/2021-09-20-preview.png
 ---
 QNAPでのDocker運用にポートフォワードが安定しないという致命的な弱点があったので、
 小型PCを購入してLinuxサーバを運用することにした。
@@ -39,7 +40,15 @@ Windows 10 でのブートメディアの作成には
 [rufus](https://rufus.ie/ja/)
 というツールを使用。
 
+![rufusによるブートメディア作成](/images/2021-09-20-ubuntu-rufus.png)
+
 HeroBox Pro は起動時に ESC で BIOS 画面に、F7 で起動メディア選択メニューを出すことができる。
+BIOS は AMI だった。
+Quiet Boot を Enabled に、
+Secure Boot を Disabled にしておく。
+
+![Quiet Boot](/images/2021-09-20-ubuntu-bios-boot1.png)
+![Secure Boot](/images/2021-09-20-ubuntu-bios-boot2.png)
 
 Ubuntu のインストーラを rufus でコピーした USB メモリを HeroBox Pro に挿して起動、
 すればよいはずだったのだが、ちょっとハマりポイントがあった。
@@ -97,11 +106,17 @@ network:
     enp1s0:
       addresses:
         - 192.168.0.11/24
+      nameservers:
+        search:
+          - example.com
 ```
 
 2つの設定ファイルは、辞書順に読み込まれるので、
 ネットワークインターフェース enp1s0 に対して
 dhcp4 を有効にし、かつ、IP アドレスを静的に指定した状態になる。
+
+ここで使ってるルータの DHCP は DNS の検索パスを提供してくれないので、
+nameservers の search についても静的に設定を行っている。
 
 設定は `netplan apply` で反映させることができる。
 確認して意図通りになっていることを確認したら、

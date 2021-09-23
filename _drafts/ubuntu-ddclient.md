@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Ubuntu ddclient
-date: 2021-09-22 21:23 +0900
 ---
 外部から自宅サーバを操作するのには
 Cloudflare で DDNS やるのが手っ取り早そうだった。
