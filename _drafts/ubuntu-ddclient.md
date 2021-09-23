@@ -54,11 +54,23 @@ dpkg: dependency problems prevent configuration of ddclient:
 (略)
 ```
 
-libdata-validate-ip-perl
-libio-socket-ssl-perl
-libjson-pp-perl
+[GitHub: ddclient](https://github.com/ddclient/ddclient#ubuntu-style-rc-files-and-daemon-mode)
+によれば、
+以下のモジュールが必要。
 
++ libdata-validate-ip-perl
++ libio-socket-ssl-perl
++ libjson-pp-perl
++ libio-socket-inet6-perl (IPv6 を使う場合)
 
+```
+protocol=cloudflare \
+use=web, web=https://api.ipify.org/ \
+zone=example.com \
+login=[メールアドレス] \
+password=[パスワード] \
+node.example.com
+```
 ### 参考
 
 + [Cloudflare を ddclient で DDNS 化する](https://zenn.dev/akaregi/articles/4a0db32a4d40a7)
