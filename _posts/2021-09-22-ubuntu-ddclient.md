@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ubuntu ddclient
-date: 2021-09-21 10:30 +0900
+date: 2021-09-22 21:23 +0900
 ---
 外部から自宅サーバを操作するのには
 Cloudflare で DDNS やるのが手っ取り早そうだった。
@@ -44,8 +44,20 @@ Launchpad には Ubuntu 21.04 (Hirsute Hippo) 用の 3.9.1-7 と
 Ubuntu 20.04 LTS (Focal Fossa) 用の 3.8.3-1.1ubuntu1 が提供されていて
 Groovy 用は見当たらない。
 
+ddclient_3.9.1-7_all.deb
 
+```
+herobox$ sudo dpkg -i ddclient_3.9.1-7_all.deb
+(略)
+dpkg: dependency problems prevent configuration of ddclient:
+ ddclient depends on libdata-validate-ip-perl; however:
+  Package libdata-validate-ip-perl is not installed.
+(略)
+```
 
+libdata-validate-ip-perl
+libio-socket-ssl-perl
+libjson-pp-perl
 
 
 ### 参考
