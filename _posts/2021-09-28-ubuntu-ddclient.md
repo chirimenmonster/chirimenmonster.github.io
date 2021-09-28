@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cloudflare を DDNS として利用する
+date: 2021-09-28 21:00 +0900
 ---
 外部から自宅サーバを操作するのには
 Cloudflare で DDNS やるのが手っ取り早そうだった。
