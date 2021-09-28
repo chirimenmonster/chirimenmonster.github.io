@@ -186,7 +186,12 @@ CONNECT:  api.cloudflare.com
 SUCCESS:  YYY.example.com -- Updated Successfully to xxx.xxx.xxx.xxx
 ```
 
-### 参考
+## 運用
+
+daemon で運用するか、
+cron で実行するかは後で考える。
+
+## 参考
 
 + [Cloudflare を ddclient で DDNS 化する](https://zenn.dev/akaregi/articles/4a0db32a4d40a7)
 
