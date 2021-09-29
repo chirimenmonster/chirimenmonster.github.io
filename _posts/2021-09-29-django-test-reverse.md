@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Django Rest Framework のテストでハマったこと (1)
+date: 2021-09-29 21:20 +0900
 ---
 
 Django Rest Framework のテストコードの例でよく出てくる
