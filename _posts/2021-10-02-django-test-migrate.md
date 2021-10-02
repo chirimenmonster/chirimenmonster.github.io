@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Django Rest Framework のテストでハマったこと (4)
+date: 2021-10-02 16:00 +0900
 ---
 
 Django で既存データベースから inspectdb で作成した
